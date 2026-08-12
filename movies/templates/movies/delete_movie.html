@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Movie</title>
+    <link rel="stylesheet" href="{% static 'movies/style.css' %}">
+</head>
+
+<body>
+
+    <div class="movie">
+
+        <h1>Delete Movie</h1>
+
+        <p>Are you sure you want to delete "{{ movie.title }}"?</p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <button type="submit">🗑️ Yes, Delete</button>
+        </form>
+
+        <br>
+
+        <a class="back-button" href="{% url 'movie_detail' movie.id %}">
+            ← Cancel
+        </a>
+
+    </div>
+
+</body>
+</html>

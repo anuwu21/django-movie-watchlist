@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ movie.title }}</title>
+    <link rel="stylesheet" href="{% static 'movies/style.css' %}">
+</head>
+
+<body>
+    <div class="movie">
+    <h1>{{ movie.title }}</h1>
+
+    <p>Genre: {{ movie.genre }}</p>
+    <p>Year: {{ movie.year }}</p>
+    <p>Rating: ⭐ {{ movie.rating }}</p>
+
+    <p>{{ movie.description }}</p>
+
+    {% if movie.watched %}
+        <p>✅ Watched</p>
+    {% else %}
+        <p>❌ Not Watched</p>
+    {% endif %}
+
+ <a class="edit-button" href="{% url 'edit_movie' movie.id %}">
+    ✏️ Edit Movie
+</a>
+<br><br>
+<a class="delete-button" href="{% url 'delete_movie' movie.id %}">
+    🗑️ Delete Movie
+</a>
+<br><br>
+
+<a class="back-button" href="{% url 'movie_list' %}">
+    ← Back to movies
+</a>
+<br><br>
+</div>
+
+</body>
+</html>
