@@ -89,6 +89,11 @@ def edit_movie(request, id):
         movie.rating = request.POST['rating']
         movie.description = request.POST['description']
         movie.watched = 'watched' in request.POST
+        
+        poster = request.FILES.get('poster')
+
+        if poster:
+            movie.poster = poster
 
         movie.save()
 

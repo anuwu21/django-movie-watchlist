@@ -130,15 +130,32 @@ form input[type="checkbox"] {
 }
 
 .movie img {
-    width: 150px;
-    height: 220px;
+    width: 100px;
+    height: 150px;
     object-fit: cover;
     border-radius: 8px;
 }
 
 .detail-poster {
-    width: 300px;
-    max-height: 450px;
+    width: 200px !important;
+    height: 300px !important;
+    max-width: 200px !important;
+    max-height: 300px !important;
     object-fit: cover;
     border-radius: 10px;
 }
+
+.movie-poster {
+    width: 120px !important;
+    height: 175px !important;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.edit-poster {
+    width: 120px;
+    height: 175px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+

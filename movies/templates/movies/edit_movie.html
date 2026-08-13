@@ -11,7 +11,7 @@
 
     <h1>Edit Movie</h1>
 
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
 
         <label>Title:</label>
@@ -33,6 +33,16 @@
         <label>Description:</label>
         <textarea name="description">{{ movie.description }}</textarea>
         <br><br>
+
+        <label>Movie Poster:</label>
+        <input type="file" name="poster">
+
+        {% if movie.poster %}
+    <p>Current Poster:</p>
+    <img class="edit-poster"
+         src="{{ movie.poster.url }}"
+         alt="{{ movie.title }} poster">
+    {% endif %}
 
         <label>
             <input type="checkbox" name="watched" {% if movie.watched %}checked{% endif %}>

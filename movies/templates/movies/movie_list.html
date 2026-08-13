@@ -11,11 +11,14 @@
 <body>
 
     <h1>My Movie Watchlist</h1>
+    <!-- <h1 style="color: red;">TEST 123</h1> -->
     <a class="add-button" href="{% url 'add_movie' %}">
     ➕ Add Movie
 </a>
     <br><br>
-    <p>{{ movies|length }} movie(s) found</p>
+    <p style="text-align: center;">
+    {{ movies|length }} movie(s) found
+    </p>
 
     
 
@@ -90,17 +93,21 @@
 </form>
 
     {% for movie in movies %}
+
     <div class="movie">
 
-    {% if movie.poster %}
-    <img src="{{ movie.poster.url }}" alt="{{ movie.title }} poster" width="150">
-    {% endif %}
+        {% if movie.poster %}
+            <img src="{{ movie.poster.url }}"
+                 alt="{{ movie.title }} poster"
+                 style="width: 120px; height: 175px; object-fit: cover; border-radius: 8px;">
+        {% endif %}
 
-<h2>
-    <a href="{% url 'movie_detail' movie.id %}">
-    {{ movie.title }}
-    </a>
-</h2>
+        <h2>
+            <a href="{% url 'movie_detail' movie.id %}">
+                {{ movie.title }}
+            </a>
+        </h2>
+
         <p>Genre: {{ movie.genre }}</p>
         <p>Year: {{ movie.year }}</p>
         <p>Rating: ⭐ {{ movie.rating }}</p>
@@ -113,15 +120,16 @@
         {% endif %}
 
         <hr>
+
     </div>
-    {% empty %}
+
+{% empty %}
 
     <div class="movie">
         <h2>No movies found 😔</h2>
         <p>Try a different search or genre.</p>
     </div>
 
-    {% endfor %}
-
+{% endfor %}
 </body>
 </html>
