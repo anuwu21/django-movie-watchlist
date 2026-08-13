@@ -6,5 +6,6 @@ class Movie(models.Model):
     rating = models.FloatField()
     description = models.TextField()
     watched = models.BooleanField(default=False)
+    poster = models.ImageField(upload_to='posters/', blank=True, null=True)
 
 # Create your models here.

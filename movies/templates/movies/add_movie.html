@@ -10,7 +10,7 @@
 
     <h1>Add a Movie</h1>
 
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
 
         <label>Title:</label>
@@ -32,6 +32,9 @@
         <label>Description:</label>
         <textarea name="description"></textarea>
         <br><br>
+
+        <label>Movie Poster:</label>
+        <input type="file" name="poster">
 
         <label>
             <input type="checkbox" name="watched">

@@ -92,6 +92,10 @@
     {% for movie in movies %}
     <div class="movie">
 
+    {% if movie.poster %}
+    <img src="{{ movie.poster.url }}" alt="{{ movie.title }} poster" width="150">
+    {% endif %}
+
 <h2>
     <a href="{% url 'movie_detail' movie.id %}">
     {{ movie.title }}

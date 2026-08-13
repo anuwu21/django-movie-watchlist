@@ -128,3 +128,17 @@ textarea {
 form input[type="checkbox"] {
     width: auto;
 }
+
+.movie img {
+    width: 150px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.detail-poster {
+    width: 300px;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+}

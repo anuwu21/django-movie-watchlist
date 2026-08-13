@@ -63,13 +63,16 @@ def add_movie(request):
 
         watched = 'watched' in request.POST
 
+        poster = request.FILES.get('poster')
+
         Movie.objects.create(
             title=title,
             genre=genre,
             year=year,
             rating=rating,
             description=description,
-            watched=watched
+            watched=watched,
+            poster=poster
         )
 
         return redirect('movie_list')
