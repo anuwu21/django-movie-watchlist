@@ -28,6 +28,12 @@
         <p>❌ Not Watched</p>
     {% endif %}
 
+    {% if movie.favorite %}
+    <p>❤️ Favorite</p>
+    {% else %}
+    <p>🤍 Not Favorite</p>
+    {% endif %}
+
  <a class="edit-button" href="{% url 'edit_movie' movie.id %}">
     ✏️ Edit Movie
 </a>

@@ -21,7 +21,10 @@ def movie_list(request):
         movies = movies.filter(watched=True)
 
     elif status == 'unwatched':
-        movies = movies.filter(watched=False)    
+        movies = movies.filter(watched=False)
+
+    elif status == 'favorite':
+        movies = movies.filter(favorite=True)        
 
     if sort == 'rating':
         movies = movies.order_by('-rating')
@@ -69,6 +72,8 @@ def add_movie(request):
 
         watched = 'watched' in request.POST
 
+        favorite = 'favorite' in request.POST
+
         poster = request.FILES.get('poster')
 
         Movie.objects.create(
@@ -78,6 +83,7 @@ def add_movie(request):
             rating=rating,
             description=description,
             watched=watched,
+            favorite=favorite,
             poster=poster
         )
 
@@ -95,6 +101,7 @@ def edit_movie(request, id):
         movie.rating = request.POST['rating']
         movie.description = request.POST['description']
         movie.watched = 'watched' in request.POST
+        movie.favorite = 'favorite' in request.POST
 
         poster = request.FILES.get('poster')
 

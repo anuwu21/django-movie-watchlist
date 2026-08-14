@@ -54,6 +54,14 @@
 
         <br><br>
 
+    <label>
+    <input type="checkbox" name="favorite"
+        {% if movie.favorite %}checked{% endif %}>
+    ❤️ Favorite
+    </label>
+
+        <br><br>
+
         <button type="submit">Save Changes</button>
 
     </form>

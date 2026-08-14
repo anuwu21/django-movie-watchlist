@@ -44,10 +44,20 @@
 
     </select>
 
-    <select name="status">
+<select name="status">
     <option value="">All Movies</option>
-    <option value="watched">✅ Watched</option>
-    <option value="unwatched">❌ Not Watched</option>
+    <option value="watched"
+        {% if status == 'watched' %}selected{% endif %}>
+        ✅ Watched
+    </option>
+    <option value="unwatched"
+        {% if status == 'unwatched' %}selected{% endif %}>
+        ❌ Not Watched
+    </option>
+    <option value="favorite"
+        {% if status == 'favorite' %}selected{% endif %}>
+        ❤️ Favorites
+    </option>
 </select>
 
     <!-- <h3>STATUS TEST</h3>
@@ -120,6 +130,14 @@
         {% endif %}
 
         <hr>
+
+    {% if movie.favorite %}
+    <p>❤️ Favorite</p>
+    {% else %}
+    <p>🤍 Not Favorite</p>
+    {% endif %}
+
+
 
     </div>
 
