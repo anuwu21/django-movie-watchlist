@@ -16,8 +16,8 @@
     ➕ Add Movie
 </a>
     <br><br>
-    <p style="text-align: center;">
-    {{ movies|length }} movie(s) found
+    <p class="movie-count">
+    {{ movies.paginator.count }} movie(s) found
     </p>
 
     
@@ -131,5 +131,26 @@
     </div>
 
 {% endfor %}
+
+<div class="pagination">
+
+    {% if movies.has_previous %}
+        <a href="?search={{ query|default:'' }}&genre={{ genre|default:'' }}&status={{ status|default:'' }}&sort={{ sort|default:'' }}&page={{ movies.previous_page_number }}">
+            ← Previous
+        </a>
+    {% endif %}
+
+    <span>
+        Page {{ movies.number }} of {{ movies.paginator.num_pages }}
+    </span>
+
+    {% if movies.has_next %}
+        <a href="?search={{ query|default:'' }}&genre={{ genre|default:'' }}&status={{ status|default:'' }}&sort={{ sort|default:'' }}&page={{ movies.next_page_number }}">
+            Next →
+        </a>
+    {% endif %}
+
+</div>
+
 </body>
 </html>

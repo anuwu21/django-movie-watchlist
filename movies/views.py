@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.core.paginator import Paginator
 from .models import Movie
 
 
@@ -36,6 +37,11 @@ def movie_list(request):
 
     genres = Movie.objects.values_list('genre', flat=True).distinct()
 
+# Pagination
+    paginator = Paginator(movies, 5)   # 5 movies per page
+    page_number = request.GET.get('page')
+    movies = paginator.get_page(page_number)
+
     return render(
         request,
         'movies/movie_list.html',
@@ -45,7 +51,7 @@ def movie_list(request):
             'genre': genre,
             'genres': genres,
             'sort': sort,
-
+            'status': status,
         }
     )
 
@@ -89,7 +95,7 @@ def edit_movie(request, id):
         movie.rating = request.POST['rating']
         movie.description = request.POST['description']
         movie.watched = 'watched' in request.POST
-        
+
         poster = request.FILES.get('poster')
 
         if poster:
