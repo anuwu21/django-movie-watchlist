@@ -7,47 +7,82 @@
 </head>
 
 <body>
-    <div class="movie">
-    <h1>{{ movie.title }}</h1>
 
-    {% if movie.poster %}
-    <img class="detail-poster"
-         src="{{ movie.poster.url }}"
-         alt="{{ movie.title }} poster">
-    {% endif %}
+    <div class="movie-detail">
 
-    <p>Genre: {{ movie.genre }}</p>
-    <p>Year: {{ movie.year }}</p>
-    <p>Rating: ⭐ {{ movie.rating }}</p>
+        <h1>{{ movie.title }}</h1>
 
-    <p>{{ movie.description }}</p>
+        <div class="movie-detail-content">
 
-    {% if movie.watched %}
-        <p>✅ Watched</p>
-    {% else %}
-        <p>❌ Not Watched</p>
-    {% endif %}
+            {% if movie.poster %}
+                <img class="detail-poster"
+                     src="{{ movie.poster.url }}"
+                     alt="{{ movie.title }} poster">
+            {% endif %}
 
-    {% if movie.favorite %}
-    <span class="favorite-badge">❤️ Favorite</span>
-    {% else %}
-    <span class="not-favorite-badge">🤍 Not Favorite</span>
-    {% endif %}
+            <div class="movie-info">
 
- <a class="edit-button" href="{% url 'edit_movie' movie.id %}">
-    ✏️ Edit Movie
-</a>
-<br><br>
-<a class="delete-button" href="{% url 'delete_movie' movie.id %}">
-    🗑️ Delete Movie
-</a>
-<br><br>
+                <p><strong>Genre:</strong> {{ movie.genre }}</p>
 
-<a class="back-button" href="{% url 'movie_list' %}">
-    ← Back to movies
-</a>
-<br><br>
-</div>
+                <p><strong>Year:</strong> {{ movie.year }}</p>
+
+                <p class="detail-rating">
+                    ⭐ {{ movie.rating }}
+                </p>
+
+                <p>
+                    <strong>Description:</strong><br>
+                    {{ movie.description }}
+                </p>
+
+                <div class="detail-status">
+
+                    {% if movie.watched %}
+                        <span class="watched-badge">
+                            ✅ Watched
+                        </span>
+                    {% else %}
+                        <span class="not-watched-badge">
+                            ❌ Not Watched
+                        </span>
+                    {% endif %}
+
+                    {% if movie.favorite %}
+                        <span class="favorite-badge">
+                            ❤️ Favorite
+                        </span>
+                    {% else %}
+                        <span class="not-favorite-badge">
+                            🤍 Not Favorite
+                        </span>
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="detail-actions">
+
+            <a class="edit-button"
+               href="{% url 'edit_movie' movie.id %}">
+                ✏️ Edit Movie
+            </a>
+
+            <a class="delete-button"
+               href="{% url 'delete_movie' movie.id %}">
+                🗑️ Delete Movie
+            </a>
+
+            <a class="back-button"
+               href="{% url 'movie_list' %}">
+                ← Back to Movies
+            </a>
+
+        </div>
+
+    </div>
 
 </body>
 </html>

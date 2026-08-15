@@ -264,6 +264,39 @@ form input[type="checkbox"] {
     .stat-number {
         font-size: 20px;
     }
+
+        .movie-detail {
+        padding: 20px;
+    }
+
+    .movie-detail-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .movie-detail .detail-poster {
+    width: 180px;
+    height: 270px;
+    display: block;
+    margin: 0 auto;
+    }
+
+    .movie-info {
+        width: 100%;
+    }
+
+        .detail-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .detail-actions a {
+        width: 80%;
+        text-align: center;
+    }
+
+
 }
 
 /* Step 43.4 - Overall UI Styling */
@@ -363,4 +396,103 @@ form button {
 .stat-label {
     font-size: 14px;
     color: #555;
+}
+
+.movie-detail {
+    background-color: white;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.movie-detail h1 {
+    text-align: center;
+    color: #5a1a1a;
+    margin-bottom: 30px;
+}
+
+.movie-detail-content {
+    display: flex;
+    gap: 35px;
+    align-items: flex-start;
+}
+
+.movie-detail .detail-poster {
+    width: 220px;
+    height: 330px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.movie-info {
+    flex: 1;
+}
+
+.movie-info p {
+    line-height: 1.6;
+}
+
+.detail-rating {
+    font-size: 22px;
+    font-weight: bold;
+    color: #6b2222;
+}
+
+.detail-status {
+    margin-top: 20px;
+}
+
+.watched-badge,
+.not-watched-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.watched-badge {
+    background-color: #dff0df;
+    color: #286428;
+}
+
+.not-watched-badge {
+    background-color: #eeeeee;
+    color: #555;
+}
+
+.detail-actions {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.detail-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.detail-actions a {
+    margin: 0;
+}
+.movie-detail .detail-poster {
+    transition: transform 0.2s ease;
+}
+
+.movie-detail .detail-poster:hover {
+    transform: scale(1.02);
+}
+
+.movie-info p {
+    color: #444;
+}
+
+.movie-info strong {
+    color: #5a1a1a;
 }
