@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
+from django.db.models import Avg
 from .models import Movie
 
 
@@ -10,6 +11,12 @@ def movie_list(request):
     status = request.GET.get('status')
 
     movies = Movie.objects.all()
+
+    total_movies = Movie.objects.count()
+    favorite_movies = Movie.objects.filter(favorite=True).count()
+    watched_movies = Movie.objects.filter(watched=True).count()
+    unwatched_movies = Movie.objects.filter(watched=False).count()
+    average_rating = Movie.objects.aggregate(Avg('rating'))['rating__avg']
 
     if query:
         movies = movies.filter(title__icontains=query)
@@ -55,6 +62,11 @@ def movie_list(request):
             'genres': genres,
             'sort': sort,
             'status': status,
+            'total_movies': total_movies,
+            'favorite_movies': favorite_movies,
+            'watched_movies': watched_movies,
+            'unwatched_movies': unwatched_movies,
+            'average_rating': average_rating,
         }
     )
 

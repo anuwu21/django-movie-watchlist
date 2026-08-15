@@ -252,6 +252,18 @@ form input[type="checkbox"] {
     .movie-card-content {
         width: 100%;
     }
+        .dashboard {
+        gap: 10px;
+    }
+
+    .stat-card {
+        width: 140px;
+        padding: 15px;
+    }
+
+    .stat-number {
+        font-size: 20px;
+    }
 }
 
 /* Step 43.4 - Overall UI Styling */
@@ -315,5 +327,40 @@ form button {
 }
 
 .pagination span {
+    color: #555;
+}
+.movie-count {
+    text-align: center;
+    font-weight: bold;
+    color: #6b2222;
+    margin: 15px auto;
+}
+.dashboard {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 900px;
+    margin: 20px auto 30px;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background-color: white;
+    width: 180px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: #6b2222;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 14px;
     color: #555;
 }

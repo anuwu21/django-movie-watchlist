@@ -5,6 +5,34 @@
 <html>
 <head>
     <title>My Movie Watchlist</title>
+    <div class="dashboard">
+
+    <div class="stat-card">
+        <div class="stat-number">🎬 {{ total_movies }}</div>
+        <div class="stat-label">Total Movies</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-number">❤️ {{ favorite_movies }}</div>
+        <div class="stat-label">Favorites</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-number">✅ {{ watched_movies }}</div>
+        <div class="stat-label">Watched</div>
+    </div>
+
+    <div class="stat-card">
+    <div class="stat-number">⏳ {{ unwatched_movies }}</div>
+    <div class="stat-label">Not Watched</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-number">⭐ {{ average_rating|floatformat:1 }}</div>
+        <div class="stat-label">Average Rating</div>
+    </div>
+
+</div>
     <link rel="stylesheet" href="{% static 'movies/style.css' %}">
 </head>
 
