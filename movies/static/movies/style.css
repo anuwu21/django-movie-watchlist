@@ -182,3 +182,138 @@ form input[type="checkbox"] {
 .pagination span {
     font-weight: bold;
 }
+.movie-card {
+    display: flex;
+    gap: 25px;
+    background-color: white;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.movie-card-poster {
+    width: 160px;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.movie-card-content {
+    flex: 1;
+}
+
+.movie-card-content h2 {
+    margin-top: 0;
+}
+
+.movie-card-content h2 a {
+    color: #5a1a1a;
+    text-decoration: none;
+}
+
+.movie-card-content h2 a:hover {
+    text-decoration: underline;
+}
+
+.favorite-badge,
+.not-favorite-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin: 8px 0 15px;
+}
+
+.favorite-badge {
+    background-color: #f5d6d6;
+    color: #6b2222;
+}
+
+.not-favorite-badge {
+    background-color: #eeeeee;
+    color: #555;
+}
+
+@media (max-width: 600px) {
+    .movie-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .movie-card-poster {
+        width: 140px;
+        height: 200px;
+    }
+
+    .movie-card-content {
+        width: 100%;
+    }
+}
+
+/* Step 43.4 - Overall UI Styling */
+
+.movie-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.movie-card-content p {
+    line-height: 1.5;
+}
+
+form {
+    background-color: white;
+    max-width: 800px;
+    margin: 20px auto 30px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+form input[type="text"],
+form select {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+form button {
+    margin: 5px;
+}
+
+.back-button {
+    display: inline-block;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 30px auto;
+}
+
+.pagination a {
+    background-color: #6b2222;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: #451515;
+}
+
+.pagination span {
+    color: #555;
+}
