@@ -9,6 +9,9 @@ def movie_list(request):
     genre = request.GET.get('genre')
     sort = request.GET.get('sort')
     status = request.GET.get('status')
+    min_rating = request.GET.get('min_rating')
+    min_year = request.GET.get('min_year')
+    
 
     movies = Movie.objects.all()
 
@@ -29,6 +32,12 @@ def movie_list(request):
 
     elif status == 'unwatched':
         movies = movies.filter(watched=False)
+
+    if min_rating:
+        movies = movies.filter(rating__gte=min_rating)    
+
+    if min_year:
+        movies = movies.filter(year__gte=min_year)    
 
     elif status == 'favorite':
         movies = movies.filter(favorite=True)        
@@ -67,6 +76,8 @@ def movie_list(request):
             'watched_movies': watched_movies,
             'unwatched_movies': unwatched_movies,
             'average_rating': average_rating,
+            'min_rating': min_rating,
+            'min_year': min_year,
         }
     )
 
