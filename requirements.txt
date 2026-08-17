@@ -1,1 +1,11 @@
-獡楧敲㵦㌽ㄮ⸲റ䐊慪杮㵯㘽〮㠮਍橤湡潧搭扥杵琭潯扬牡㴽⸷⸰ര朊湵捩牯㵮㈽⸶⸰ര瀊捡慫楧杮㴽㘲㌮਍楰汬睯㴽㈱㌮〮਍煳灬牡敳㴽⸰⸵വ琊摺瑡㵡㈽㈰⸶ള眊楨整潮獩㵥㘽ㄮ⸲ര搊⵪慤慴慢敳甭汲㴽⸳⸱ല瀊祳潣杰ⴲ楢慮祲㴽⸲⸹㈱਍
+﻿asgiref==3.12.1
+Django==6.0.8
+django-debug-toolbar==7.0.0
+gunicorn==26.0.0
+packaging==26.3
+pillow==12.3.0
+sqlparse==0.5.5
+tzdata==2026.3
+whitenoise==6.12.0
+dj-database-url==3.1.2
+psycopg2-binary==2.9.12
