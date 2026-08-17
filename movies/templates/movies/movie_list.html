@@ -5,6 +5,16 @@
 <html>
 <head>
     <title>My Movie Watchlist</title>
+    
+    {% if user.is_authenticated %}
+    <p>
+        Welcome, {{ user.username }}!
+        <a class="back-button" href="{% url 'logout' %}">
+            Logout
+        </a>
+    </p>
+    {% endif %}
+
     <div class="dashboard">
 
     <div class="stat-card">

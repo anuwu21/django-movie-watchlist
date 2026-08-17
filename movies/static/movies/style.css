@@ -496,3 +496,11 @@ form button {
 .movie-info strong {
     color: #5a1a1a;
 }
+
+.back-login-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}

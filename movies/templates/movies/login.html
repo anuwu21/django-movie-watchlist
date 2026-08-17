@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'movies/style.css' %}">
+</head>
+
+<body>
+
+    <div class="auth-container">
+        {% if messages %}
+    {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+        <h1>Login</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label>Username:</label>
+            <input type="text" name="username" required>
+
+            <br><br>
+
+            <div class="password-container">
+            <input type="password" name="password" id="loginPassword" required>
+            <button type="button" onclick="togglePassword('loginPassword', this)">👁️</button>
+            </div>
+
+            <br><br>
+
+            <button type="submit">Login</button>
+
+        </form>
+
+        <p>
+            Don't have an account?
+            <a href="{% url 'register' %}">Register</a>
+        </p>
+
+    </div>
+
+    <script>
+    function togglePassword(id, button) {
+    const password = document.getElementById(id);
+
+    if (password.type === "password") {
+        password.type = "text";
+        button.textContent = "🙈";
+    } else {
+        password.type = "password";
+        button.textContent = "👁️";
+    }
+}
+    </script>
+
+</body>
+</html>
